@@ -10,6 +10,7 @@ include("includes/conn.php");
 
       <!-- Left side column. contains the sidebar -->
  <?php include_once('includes/side_bar.php'); ?>
+
       <!-- =============================================== -->
 
       <!-- Content Wrapper. Contains page content -->
