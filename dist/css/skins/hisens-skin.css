@@ -21,6 +21,7 @@ select#emirate {
 	 width: 100%;
 	 max-width: 300px;
 	 margin-bottom: 25px;
+     display: none;
  }
 a.clearfilter {
     background: #921931;

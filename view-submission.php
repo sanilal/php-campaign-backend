@@ -82,38 +82,38 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                       <tr>
                         <!--<td><?php //if($res["product_img"]!=""){ ?>
                       <img src="uploads/<?php //echo $res["product_img"]; ?>" width="200" />
-                      <?php//} else{ echo "No-image";} ?></td>-->
+                      <?php //} else{ echo "No-image";} ?></td>-->
 						 <th>Full Name</th>
 						<td><?php echo $res['full_name']; ?></td>
-						</tr>
-						<tr>
-						<th>Email</th>
-                        <td><?php echo $res['email']; ?></td>
-						</tr>
-						<tr>
-						<th>Mobile</th>
-						<td><?php echo $res['mobile']; ?></td>
 						</tr>
 						<tr>
 						<th>Date of Birth</th>
                         <td><?php echo $res['dob']; ?></td>
 						</tr>
 						<tr>
+						<th>Mobile</th>
+						<td><?php echo $res['mobile']; ?></td>
+						</tr>
+						<tr>
+						<th>Email</th>
+                        <td><?php echo $res['email']; ?></td>
+						</tr>
+						<tr>
 						<th>Nationality</th>
                         <td><?php echo $res['country']; ?></td>
 						</tr>
 						<tr>
-						<th>Country / Region</th>
-                        <td><?php echo $res['retailer_country']; ?></td>
+						<th>Emirates Id</th>
+                        <td><?php echo $res['eid']; ?></td>
 						</tr>
 						<tr>
-						<th>Emirate</th>
+						<th>City</th>
                         <td><?php echo $res['emirate']; ?></td>
 						</tr>
 						<tr>
-						<th>QID</th>
-                        <td><?php echo $res['qid']; ?></td>
-						</tr>
+						<th>Retailer Name</th>
+                        <td><?php echo $res['retailer_name']; ?></td>
+						</tr>						
 						<tr>
 						<th>Product Purchased</th>
                         <td><?php echo $res['product']; ?></td>
@@ -121,19 +121,19 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
 						<tr>
 						<th>Date of Purchase</th>
                         <td><?php echo $res['purchase_date']; ?></td>
-						</tr>
-						<tr>
-						<th>Retailer Name</th>
-                        <td><?php echo $res['retailer_name']; ?></td>
-						</tr>
+						</tr>						
 						<tr>
 						<th>Invoice No.</th>
 						<td><?php echo $res['invoice_no']; ?></td>
 						</tr>
 						<tr>
+						<th>Invoice Value</th>
+						<td><?php echo $res['invoice_value']; ?></td>
+						</tr>
+						<tr>
 							<th>Invoice</th>
 							<td><?php if($res["invoice_img"]!=""){ ?>
-                      <img src="../HisensAdmin987/uploads/<?php //if($res['is_arabic']==1) {echo ('../ar/uploads/');} else {echo ('../uploads/');} ?><?php echo $res["invoice_img"]; ?>" />
+                      <img src="../Administrator987/uploads/<?php //if($res['is_arabic']==1) {echo ('../ar/uploads/');} else {echo ('../uploads/');} ?><?php echo $res["invoice_img"]; ?>" />
                       <?php } else{ echo "No-image";} ?></td>
 						</tr>
 						<tr>

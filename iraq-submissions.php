@@ -34,7 +34,7 @@ if(isset($_GET['remove_pr'])){
 		$msg = "The selected entry deleted successfully.";
 	}
 }
-$sql="select * from `".TB_pre."shop_win` WHERE `zone_country` ='qatar'  ORDER BY entry_id DESC ";
+$sql="select * from `".TB_pre."shop_win` WHERE `zone_country` ='iraq'  ORDER BY entry_id DESC ";
 $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
 
 ?>  
@@ -67,7 +67,7 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
             </div>
             
             <div class="box-body">
-				<div class="filterByemirate">
+				<!-- <div class="filterByemirate">
 					<h3>Filter by Emirate</h3>
 					<select class="form-control" name="emairate" id="emirate">
 					   <option value="" selected>Select Emirate</option>
@@ -79,7 +79,7 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
 					   <option value="Sharjah">Sharjah</option>
 					   <option value="Umm Al Quwain">Umm Al Quwain</option>
 					</select> <a href="uae-submissions.php" class="clearfilter">Clear Filter</a>
-				</div>
+				</div> -->
 				<div id="emirateFilter">
         <table id="example2" class="table table-bordered table-hover">
                     <thead>
@@ -88,14 +88,16 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                       	<th>Full Name</th>
                         <th>Email</th>
                         <th>Mobile</th>
-                        <!-- <th>Date of Birth</th> -->
+                        <th>Date of Birth</th>
                         <th>Nationality</th>
-                        <th>Qatar Id</th>
-                        <!-- <th>City</th> -->
+                        <!-- <th>Emirates Id</th> -->
+                        <th>City</th>
+                        <th>Product</th>
+                        <th>Date of Purchase</th>
                         <th>Invoice No.</th>
                         <th>Invoice Value</th>
                         <th>Store</th>
-                        <th>Submitted On</th>
+                        <!-- <th>Submitted On</th> -->
                         <th>View</th>
                       </tr>
                     </thead>
@@ -103,12 +105,7 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                     <?php 
 					$i = 1;
 					while($res = mysqli_fetch_array($r1)){ ?>
-                    <?php
-                    if($res['invoice_value']>=500) {
-                        $invRow = floor($res['invoice_value']/500);
-                        $rowCount = 1;
-                        while($rowCount<=$invRow ) {
-?>                           
+                                          
                       <tr>
                         <td><?php echo $i++; ?></td>
                         <!--<td><?php //if($res["product_img"]!=""){ ?>
@@ -117,44 +114,21 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
 						<td><?php echo $res['full_name']; ?></td>
                         <td><?php echo $res['email']; ?></td>
 						<td><?php echo $res['mobile']; ?></td>
-            <!-- <td><?php // echo $res['dob']; ?></td> -->
+            <td><?php echo $res['dob']; ?></td>
             <td><?php echo $res['country']; ?></td>
-            <td><?php echo $res['eid']; ?></td>
-            <!-- <td><?php echo $res['emirate']; ?></td> -->
-						<td><a download="<?php echo $res["invoice_img"]; ?>" href="../Administrator987/uploads/<?php echo $res["invoice_img"]; ?>"><?php echo ltrim($res['invoice_no'], 'qatar'); ?></a></td>
+            <!-- <td><?php // echo $res['eid']; ?></td> -->
+            <td><?php echo $res['emirate']; ?></td>
+            <td><?php echo $res['product']; ?></td>
+            <td><?php echo date('Y-m-d', strtotime($res['purchase_date'])); ?></td>
+						<td><a download="<?php echo $res["invoice_img"]; ?>" href="../Administrator987/uploads/<?php echo $res["invoice_img"]; ?>"><?php echo ltrim($res['invoice_no'], 'iraq'); ?></a></td>
             <td><?php echo $res['invoice_value']; ?></td>
             <td><?php echo $res['retailer_name']; ?></td>
 
-            <td><?php echo date('Y-m-d', strtotime($res['submission_date'])); ?></td>
+            
                         <td><a href="view-submission.php?e_id=<?php echo $res['entry_id']; ?>" class="btn btn-primary" title="">View</a>&nbsp;
                         <a href="javascript:removeItem(<?php echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
                       </tr>
-                      <?php
-                       $rowCount++;
-                    }
-                } else { ?>
-                  <tr>
-                        <td><?php echo $i++; ?></td>
-                        <!--<td><?php //if($res["product_img"]!=""){ ?>
-                      <img src="uploads/<?php //echo $res["product_img"]; ?>" width="200" />
-                      <?php //} else{ echo "No-image";} ?></td>-->
-						<td><?php echo $res['full_name']; ?></td>
-                        <td><?php echo $res['email']; ?></td>
-						<td><?php echo $res['mobile']; ?></td>
-            <!-- <td><?php // echo $res['dob']; ?></td> -->
-            <td><?php echo $res['country']; ?></td>
-            <td><?php echo $res['eid']; ?></td>
-            <!-- <td><?php echo $res['emirate']; ?></td> -->
-						<td><a download="<?php echo $res["invoice_img"]; ?>" href="../Administrator987/uploads/<?php echo $res["invoice_img"]; ?>"><?php echo ltrim($res['invoice_no'], 'qatar'); ?></a></td>
-            <td><?php echo $res['invoice_value']; ?></td>
-            <td><?php echo $res['retailer_name']; ?></td>
-
-            <td><?php echo date('Y-m-d', strtotime($res['submission_date'])); ?></td>
-                        <td><a href="view-submission.php?e_id=<?php echo $res['entry_id']; ?>" class="btn btn-primary" title="">View</a>&nbsp;
-                        <a href="javascript:removeItem(<?php echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
-                      </tr>
-                <?php }
-                 ?>
+                      
                       <?php }?>
                     </tbody>
                     <tfoot>

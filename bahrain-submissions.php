@@ -34,7 +34,7 @@ if(isset($_GET['remove_pr'])){
 		$msg = "The selected entry deleted successfully.";
 	}
 }
-$sql="select * from `".TB_pre."shop_win` WHERE `zone_country` ='qatar'  ORDER BY entry_id DESC ";
+$sql="select * from `".TB_pre."shop_win` WHERE `zone_country` ='bahrain'  ORDER BY entry_id DESC ";
 $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
 
 ?>  
@@ -88,14 +88,15 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                       	<th>Full Name</th>
                         <th>Email</th>
                         <th>Mobile</th>
-                        <!-- <th>Date of Birth</th> -->
+                        <th>Date of Birth</th>
                         <th>Nationality</th>
-                        <th>Qatar Id</th>
-                        <!-- <th>City</th> -->
+                        <th>Bahrain Id</th>
+                        <th>City</th>
+                        <th>Product</th>
+                        <th>Date of Purchase</th>
                         <th>Invoice No.</th>
                         <th>Invoice Value</th>
                         <th>Store</th>
-                        <th>Submitted On</th>
                         <th>View</th>
                       </tr>
                     </thead>
@@ -117,15 +118,17 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
 						<td><?php echo $res['full_name']; ?></td>
                         <td><?php echo $res['email']; ?></td>
 						<td><?php echo $res['mobile']; ?></td>
-            <!-- <td><?php // echo $res['dob']; ?></td> -->
+            <td><?php echo $res['dob']; ?></td>
             <td><?php echo $res['country']; ?></td>
             <td><?php echo $res['eid']; ?></td>
-            <!-- <td><?php echo $res['emirate']; ?></td> -->
-						<td><a download="<?php echo $res["invoice_img"]; ?>" href="../Administrator987/uploads/<?php echo $res["invoice_img"]; ?>"><?php echo ltrim($res['invoice_no'], 'qatar'); ?></a></td>
+            <td><?php echo $res['emirate']; ?></td>
+            <td><?php echo $res['product']; ?></td>
+            <td><?php echo date('Y-m-d', strtotime($res['purchase_date'])); ?></td>
+						<td><a download="<?php echo $res["invoice_img"]; ?>" href="../Administrator987/uploads/<?php echo $res["invoice_img"]; ?>"><?php echo ltrim($res['invoice_no'], 'bahrain'); ?></a></td>
             <td><?php echo $res['invoice_value']; ?></td>
             <td><?php echo $res['retailer_name']; ?></td>
 
-            <td><?php echo date('Y-m-d', strtotime($res['submission_date'])); ?></td>
+            
                         <td><a href="view-submission.php?e_id=<?php echo $res['entry_id']; ?>" class="btn btn-primary" title="">View</a>&nbsp;
                         <a href="javascript:removeItem(<?php echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
                       </tr>
@@ -133,7 +136,7 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                        $rowCount++;
                     }
                 } else { ?>
-                  <tr>
+              <tr>
                         <td><?php echo $i++; ?></td>
                         <!--<td><?php //if($res["product_img"]!=""){ ?>
                       <img src="uploads/<?php //echo $res["product_img"]; ?>" width="200" />
@@ -141,19 +144,21 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
 						<td><?php echo $res['full_name']; ?></td>
                         <td><?php echo $res['email']; ?></td>
 						<td><?php echo $res['mobile']; ?></td>
-            <!-- <td><?php // echo $res['dob']; ?></td> -->
+            <td><?php echo $res['dob']; ?></td>
             <td><?php echo $res['country']; ?></td>
             <td><?php echo $res['eid']; ?></td>
-            <!-- <td><?php echo $res['emirate']; ?></td> -->
-						<td><a download="<?php echo $res["invoice_img"]; ?>" href="../Administrator987/uploads/<?php echo $res["invoice_img"]; ?>"><?php echo ltrim($res['invoice_no'], 'qatar'); ?></a></td>
+            <td><?php echo $res['emirate']; ?></td>
+            <td><?php echo $res['product']; ?></td>
+            <td><?php echo date('Y-m-d', strtotime($res['purchase_date'])); ?></td>
+						<td><a download="<?php echo $res["invoice_img"]; ?>" href="../Administrator987/uploads/<?php echo $res["invoice_img"]; ?>"><?php echo ltrim($res['invoice_no'], 'bahrain'); ?></a></td>
             <td><?php echo $res['invoice_value']; ?></td>
             <td><?php echo $res['retailer_name']; ?></td>
 
-            <td><?php echo date('Y-m-d', strtotime($res['submission_date'])); ?></td>
+            
                         <td><a href="view-submission.php?e_id=<?php echo $res['entry_id']; ?>" class="btn btn-primary" title="">View</a>&nbsp;
                         <a href="javascript:removeItem(<?php echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
                       </tr>
-                <?php }
+           <?php     }
                  ?>
                       <?php }?>
                     </tbody>

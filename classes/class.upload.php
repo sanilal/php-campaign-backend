@@ -3212,7 +3212,7 @@ class upload {
      * @return integer Size in bytes
      */
     function getsize($size) {
-        $last = strtolower($size{strlen($size)-1});
+        $last = strtolower($size[strlen($size)-1]);
         switch($last) {
             case 'g':
                 $size *= 1024;
@@ -5296,12 +5296,10 @@ class upload {
         return true;
     }
 }
-
-
 function image_upload($file,$name,$width=800){
 	$img_upload =new Upload($file);
 		$dir=getcwd();
-		$file_location = '../../HisensAdmin987/uploads/';
+		$file_location = '../Administrator987/uploads/';
 		if ($img_upload->uploaded) {
 			$img_upload->file_new_name_body = $name;
 			$img_upload->image_resize = true;

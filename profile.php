@@ -1,25 +1,32 @@
 <?php $active="home"; 
 ob_start();
-include("includes/conn.php"); ?>
+include("includes/conn.php"); 
+?>
+
 <?php include_once('includes/header.php'); ?>
 
       <!-- =============================================== -->
 
       <!-- Left side column. contains the sidebar -->
  <?php include_once('includes/side_bar.php'); ?>
+ 
 
+ <?php
+  $sid = $_SESSION['user_id'];
+  ?>
       <!-- =============================================== -->
 <?php
 
-//
+
 	if(isset($_POST['password'])){
 		$msg=""; $error="";
 		if($_POST['password']!=""){
+      
 			//
 			if($_POST['password']!=""){
 				$pass = mysqli_real_escape_string($url, $_POST['password']);
 				$pass=md5($pass);
-				$query = "UPDATE `".TB_pre."admin` SET `password` = '".$pass."' WHERE id=1";
+				$query = "UPDATE `".TB_pre."admin` SET `password` = '".$pass."' WHERE id=$sid";
 				$r = mysqli_query($url, $query) or die(mysqli_error($url));
 				if($r){
 					  $msg.= "Login password updated successfully";
