@@ -22,13 +22,13 @@
               <li class="treeview <?php if($active=="submissions"){ echo "active";} ?>">
               <a href="submissions.php">
                 <i class="fa fa-shopping-bag"></i>
-                <span>Win With Alpro</span>
+                <span>Shop & Win</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
               	<li><a href="submissions.php"><i class="fa fa-folder-open"></i> View Submissions</a></li>
-				
-			
+				<li><a href="uae-submissions.php"><i class="fa fa-folder-open"></i>UAE Submissions</a></li>
+				<li><a href="qatar-submissions.php"><i class="fa fa-folder-open"></i>Qatar Submissions</a></li>
               </ul>
             </li>
         <?php /*?>     <li class="treeview <?php if($active=="sections"){ echo "active";} ?>">

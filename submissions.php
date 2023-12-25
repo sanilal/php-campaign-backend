@@ -74,11 +74,9 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                       <tr>
                       <th>Sl. No</th>
                       	<th>Full Name</th>
-                      	<th>Nationality</th>
-                      	<th>Date Of Birth</th>
-                      	<th>Emirate</th>
                         <th>Email</th>
                         <th>Mobile</th>
+                        <th>Invoice No.</th>
                         <th>View</th>
                       </tr>
                     </thead>
@@ -90,13 +88,11 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                         <td><?php echo $i++; ?></td>
                         <!--<td><?php //if($res["product_img"]!=""){ ?>
                       <img src="uploads/<?php //echo $res["product_img"]; ?>" width="200" />
-                      <?php //} else{ echo "No-image";} ?></td>-->
+                      <?php//} else{ echo "No-image";} ?></td>-->
 						<td><?php echo $res['full_name']; ?></td>
-            <td><?php echo $res['country']; ?></td>
-            <td><?php echo $res['dob']; ?></td>
-            <td><?php echo $res['emirate']; ?></td>
-            <td><?php echo $res['email']; ?></td>
-						<td>+<?php echo $res['mobile']; ?></td>
+                        <td><?php echo $res['email']; ?></td>
+						<td><?php echo $res['mobile']; ?></td>
+						<td><?php echo $res['invoice_no']; ?></td>
                         <td><a href="view-submission.php?e_id=<?php echo $res['entry_id']; ?>" class="btn btn-primary" title="">View</a>&nbsp;
                         <a href="javascript:removeItem(<?php echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
                       </tr>
