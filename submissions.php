@@ -36,7 +36,8 @@ if(isset($_GET['remove_pr'])){
 		$msg = "The selected entry deleted successfully.";
 	}
 }
-$sql="select * from `".TB_pre."shop_win`  ORDER BY entry_id DESC ";
+ $sql="select * from `".TB_pre."shop_win` GROUP BY `email` ORDER BY entry_id DESC ";
+// $sql="select * from `".TB_pre."shop_win` ORDER BY entry_id DESC ";
 $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
 
 ?>  
@@ -75,8 +76,13 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                       <th>Sl. No</th>
                       	<th>Full Name</th>
                         <th>Email</th>
+                        <th>City</th>
                         <th>Mobile</th>
-                        <th>Invoice No.</th>
+                        <!-- <th>National ID / Iqama ID</th> -->
+                        <th>Product Image</th>
+                        <th>Invoice Image</th>
+                        <th>Country</th>
+                        <th>Prize</th>
                         <th>View</th>
                       </tr>
                     </thead>
@@ -88,13 +94,20 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                         <td><?php echo $i++; ?></td>
                         <!--<td><?php //if($res["product_img"]!=""){ ?>
                       <img src="uploads/<?php //echo $res["product_img"]; ?>" width="200" />
-                      <?php//} else{ echo "No-image";} ?></td>-->
+                      <?php //} else{ echo "No-image";} ?></td>-->
 						<td><?php echo $res['full_name']; ?></td>
                         <td><?php echo $res['email']; ?></td>
+                        <td><?php echo $res['emirate']; ?></td>
 						<td><?php echo $res['mobile']; ?></td>
-						<td><?php echo $res['invoice_no']; ?></td>
+						<!-- <td><?php // echo $res['eid']; ?></td> -->
+            <td><a download="<?php echo $res["product_img"]; ?>" href="/uploads/<?php echo $res["product_img"]; ?>"><img src="uploads/<?php echo $res['product_img']; ?>" width="75px" height="75px" /></a></td>
+						<td><a download="<?php echo $res["invoice_img"]; ?>" href="/uploads/<?php echo $res["invoice_img"]; ?>"><img src="uploads/<?php echo $res['invoice_img']; ?>" width="75px" height="75px" /></a></td>
+            <td><?php echo $res['zone_country']; ?></td>
+                        <td><?php echo $res['prize']; ?></td>
                         <td><a href="view-submission.php?e_id=<?php echo $res['entry_id']; ?>" class="btn btn-primary" title="">View</a>&nbsp;
                         <a href="javascript:removeItem(<?php echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
+                      
+
                       </tr>
                       <?php }?>
                     </tbody>

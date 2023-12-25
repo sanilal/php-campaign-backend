@@ -2571,7 +2571,7 @@ class upload {
      *    or   string $file Local filename
      * @param  string $lang Optional language code
      */
-    function upload($file, $lang = 'en_GB') {
+    function __construct($file, $lang = 'en_GB') {
 
         $this->version            = '0.32';
 
@@ -3212,7 +3212,7 @@ class upload {
      * @return integer Size in bytes
      */
     function getsize($size) {
-        $last = strtolower($size{strlen($size)-1});
+        $last = strtolower($size[strlen($size)-1]);
         switch($last) {
             case 'g':
                 $size *= 1024;
@@ -5296,12 +5296,10 @@ class upload {
         return true;
     }
 }
-
-
 function image_upload($file,$name,$width=800){
 	$img_upload =new Upload($file);
 		$dir=getcwd();
-		$file_location = '../987Admin/uploads/';
+		$file_location = '../../PersilAdmin/uploads/';
 		if ($img_upload->uploaded) {
 			$img_upload->file_new_name_body = $name;
 			$img_upload->image_resize = true;

@@ -87,10 +87,6 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
 						<td><?php echo $res['full_name']; ?></td>
 						</tr>
 						<tr>
-						<th>Date of Birth</th>
-                        <td><?php echo $res['dob']; ?></td>
-						</tr>
-						<tr>
 						<th>Mobile</th>
 						<td><?php echo $res['mobile']; ?></td>
 						</tr>
@@ -99,47 +95,47 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
                         <td><?php echo $res['email']; ?></td>
 						</tr>
 						<tr>
-						<th>Nationality</th>
-                        <td><?php echo $res['country']; ?></td>
+						<th>Prize</th>
+                        <td><?php echo $res['prize']; ?></td>
 						</tr>
-						<tr>
-						<th>Emirates Id</th>
-                        <td><?php echo $res['eid']; ?></td>
-						</tr>
-						<tr>
 						<th>City</th>
                         <td><?php echo $res['emirate']; ?></td>
 						</tr>
 						<tr>
-						<th>Retailer Name</th>
-                        <td><?php echo $res['retailer_name']; ?></td>
-						</tr>						
-						<tr>
-						<th>Product Purchased</th>
-                        <td><?php echo $res['product']; ?></td>
-						</tr>
-						<tr>
-						<th>Date of Purchase</th>
-                        <td><?php echo $res['purchase_date']; ?></td>
-						</tr>						
 						<tr>
 						<th>Invoice No.</th>
-						<td><?php echo $res['invoice_no']; ?></td>
+						<td><?php  echo $res['invoice_no']; ?></td>
 						</tr>
 						<tr>
-						<th>Invoice Value</th>
-						<td><?php echo $res['invoice_value']; ?></td>
-						</tr>
-						<tr>
-							<th>Invoice</th>
-							<td><?php if($res["invoice_img"]!=""){ ?>
-                      <img src="../Administrator987/uploads/<?php //if($res['is_arabic']==1) {echo ('../ar/uploads/');} else {echo ('../uploads/');} ?><?php echo $res["invoice_img"]; ?>" />
+							<th>Product Image</th>
+							<td><?php if($res["product_img"]!=""){ ?>
+                      <img src="../PersilAdmin/uploads/<?php echo $res["product_img"]; ?>" />
                       <?php } else{ echo "No-image";} ?></td>
 						</tr>
 						<tr>
+							<th>Invoice Image</th>
+							<td><?php if($res["invoice_img"]!=""){ ?>
+                      <img src="../PersilAdmin/uploads/<?php echo $res["invoice_img"]; ?>" />
+                      <?php } else{ echo "No-image";} ?></td>
+						</tr>
+						<!-- <tr>
+							<th>Image</th>
+							<td><?php if($res["invoice_img"]!=""){ ?>
+                      <img src="../PersilAdmin/uploads/<?php if($res['is_arabic']==1) {echo ('../ar/uploads/');} else {echo ('../uploads/');} ?><?php echo $res["invoice_img"]; ?>" />
+                      <?php } else{ echo "No-image";} ?></td>
+						</tr> -->
+						<tr>
+						<tr>
+						<th>Submitted On</th>
+                        <td><?php echo $res['submission_date']; ?></td>
+						</tr>
+						<th>Country</th>
+						<td><?php  echo $res['zone_country']; ?></td>
+						</tr>
+						<!-- <tr>
 						<th>Delete</th>
-                        <td><a href="javascript:removeItem(<?php echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
-                      </tr>
+                        <td><a href="javascript:removeItem(<?php // echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
+                      </tr> -->
                       <?php }?>
                     </tbody>
                     <tfoot>

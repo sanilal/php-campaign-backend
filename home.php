@@ -18,7 +18,7 @@ include("includes/conn.php");
         <section class="content-header">
           <h1>
             Home
-            <small>it all starts here</small>
+            <small>It all starts here</small>
           </h1>
          
         </section>

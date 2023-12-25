@@ -32,57 +32,48 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <?php if($sid==3) {?>
-              	<li><a href="submissions.php"><i class="fa fa-folder-open"></i> View Submissions</a></li>
-               <?php } ?>
-               <?php if($sid==4 || $sid==3) {?>
-				<li><a href="uae-submissions.php"><i class="fa fa-folder-open"></i>UAE Submissions</a></li>
-       <?php } ?>
-       <?php if($sid==2 || $sid==3) {?>
-				<li><a href="qatar-submissions.php"><i class="fa fa-folder-open"></i>Qatar Submissions</a></li>
-       <?php } ?>
-       <?php if($sid==5 || $sid==3) {?>
-				<li><a href="kuwait-submissions.php"><i class="fa fa-folder-open"></i>Kuwait Submissions</a></li>
-       <?php } ?>
-       <?php if($sid==7 || $sid==3) {?>
-				<li><a href="bahrain-submissions.php"><i class="fa fa-folder-open"></i>Bahrain Submissions</a></li>
-       <?php } ?>
-       <?php if($sid==8 || $sid==3) {?>
-				<li><a href="oman-submissions.php"><i class="fa fa-folder-open"></i>Oman Submissions</a></li>
-       <?php } ?>
-       <?php if($sid==9 || $sid==3) {?>
-				<li><a href="lebanon-submissions.php"><i class="fa fa-folder-open"></i>Lebanon Submissions</a></li>
-       <?php } ?>
-       <?php if($sid==10 || $sid==3) {?>
-				<li><a href="jordan-submissions.php"><i class="fa fa-folder-open"></i>Jordan Submissions</a></li>
-       <?php } ?>
-       <?php if($sid==11 || $sid==3) {?>
-				<li><a href="iraq-submissions.php"><i class="fa fa-folder-open"></i>Iraq Submissions</a></li>
-       <?php } ?>
+                <li><a href="bh-submissions.php"><i class="fa fa-folder-open"></i> Bahrain Submissions</a></li>     
+                <li><a href="ksa-submissions.php"><i class="fa fa-folder-open"></i> KSA Submissions</a></li> 
+                <li><a href="uae-submissions.php"><i class="fa fa-folder-open"></i> UAE Submissions</a></li> 
+                    
+                
+              	<li><a href="submissions.php"><i class="fa fa-folder-open"></i> All Submissions</a></li>     
               </ul>
             </li>
-        <?php /*?>     <li class="treeview <?php if($active=="sections"){ echo "active";} ?>">
+        <?php ?>     <li class="treeview <?php if($active=="campaign"){ echo "active";} ?>">
               <a href="#">
                 <i class="fa fa-newspaper-o"></i>
-                <span>Sections</span>
+                <span>Campaign Settings</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                  <li>
-                        <a href="edit-section.php?section_id=1">
+              <li>
+                        <a href="dates.php">
                             <i class="fa fa-braille"></i>
-                            <span>Home Section</span>
+                            <span>View Active Dates</span>
                         </a>
                   </li>
                   <li>
-                      <a href="edit-section.php?section_id=2">
-                        <i class="fa fa-braille"></i>
-                        <span>About Section</span>
+                        <a href="prizes.php?section_id=1">
+                            <i class="fa fa-gift"></i>
+                            <span>Prizes</span>
+                        </a>
+                  </li>
+                  <li>
+                        <a href="add-prize.php">
+                            <i class="fa fa-gift"></i>
+                            <span> + Add Prize</span>
+                        </a>
+                  </li>
+                  <li>
+                      <a href="winners.php">
+                        <i class="fa fa-trophy"></i>
+                        <span>Winners</span>
                       </a>
                    </li>
                  </ul>
            
-             </li><?php */?>
+             </li><?php ?>
      
        		
           </ul>

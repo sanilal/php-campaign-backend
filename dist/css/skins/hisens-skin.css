@@ -1,12 +1,12 @@
 @charset "utf-8";
-.skin-hisens:hover .main-header .logo:hover {
+/* .skin-hisens:hover .main-header .logo:hover {
 	background: #028985;
-}
+} */
 a.logo.admin-logo {
-    padding-top: 14px;
+    padding-top: 4px;
 }
 table#example2 thead , table#example3 thead {
-    background: #921931;
+    background: #000;
     color: #fff;
 }
 body.hold-transition.login-page {
