@@ -15,24 +15,20 @@
             
           </div>
           
-          <?php 
-          $sid = $_SESSION['user_id']; 
-//           $csql="select `zone_access` from `".TB_pre."admin`WHERE `id`='$sid' ";
-// $cr1=mysqli_query($url,$csql) or die("Failed".mysqli_error($url));
-//$crow=mysqli_fetch_object($cr1);
-//$zone =  $crow->zone_access;
-          ?>
+          
           <ul class="sidebar-menu">
           	
             <li class="header"> <a href="logout.php" ><i class="fa fa-power-off"></i> &nbsp;Sign out</a></li>
               <li class="treeview <?php if($active=="submissions"){ echo "active";} ?>">
               <a href="submissions.php">
                 <i class="fa fa-shopping-bag"></i>
-                <span>Shop & Win</span>
+                <span>Win With Alpro</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-              	<li><a href="submissions.php"><i class="fa fa-folder-open"></i> View Submissions</a></li>      
+              	<li><a href="submissions.php"><i class="fa fa-folder-open"></i> View Submissions</a></li>
+				
+			
               </ul>
             </li>
         <?php /*?>     <li class="treeview <?php if($active=="sections"){ echo "active";} ?>">

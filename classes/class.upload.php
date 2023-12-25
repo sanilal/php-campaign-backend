@@ -5299,7 +5299,7 @@ class upload {
 function image_upload($file,$name,$width=800){
 	$img_upload =new Upload($file);
 		$dir=getcwd();
-		$file_location = '../almaraiAdmin987/uploads/';
+		$file_location = 'alproAdmin987/uploads/';
 		if ($img_upload->uploaded) {
 			$img_upload->file_new_name_body = $name;
 			$img_upload->image_resize = true;

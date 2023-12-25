@@ -11,8 +11,6 @@ include("includes/conn.php");
 
 <?php  
 
- 
-$entry_id = $_GET['e_id'];
 
 if(isset($_GET['p_id']) && isset($_GET['status']) ){
 	$id = $_GET['p_id'];
@@ -38,9 +36,8 @@ if(isset($_GET['remove_pr'])){
 		$msg = "The selected entry deleted successfully.";
 	}
 }
-$sql="select * from `".TB_pre."shop_win` WHERE `entry_id` = '$entry_id'  ORDER BY entry_id DESC ";
+$sql="select * from `".TB_pre."shop_win` WHERE `retailer_country` ='Qatar'  ORDER BY entry_id DESC ";
 $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
-
 ?>  
 
       <!-- =============================================== -->
@@ -50,11 +47,9 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            View Submission
+            View Submissions
             <small></small>
           </h1>
-          
- 
           
         </section>
 
@@ -64,7 +59,6 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
           <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-            
               <?php if(isset($msg)){ ?>
               	<div class="alert alert-success alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -75,57 +69,34 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
             
             <div class="box-body">
                   <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                      <th>Sl. No</th>
+                      	<th>Full Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Invoice No.</th>
+						<th>QID</th>
+                        <th>View</th>
+                      </tr>
+                    </thead>
                     <tbody>
                     <?php 
 					$i = 1;
 					while($res = mysqli_fetch_array($r1)){ ?>
                       <tr>
+                        <td><?php echo $i++; ?></td>
                         <!--<td><?php //if($res["product_img"]!=""){ ?>
                       <img src="uploads/<?php //echo $res["product_img"]; ?>" width="200" />
                       <?php//} else{ echo "No-image";} ?></td>-->
-						 <th>Full Name</th>
 						<td><?php echo $res['full_name']; ?></td>
-						</tr>
-            <tr>
-						<th>Nationality</th>
-                        <td><?php echo $res['country']; ?></td>
-						</tr>
-            <tr>
-						<th>Date of Birth</th>
-                        <td><?php echo $res['dob']; ?></td>
-						</tr>
-            <tr>
-						<th>Emirate</th>
-                        <td><?php echo $res['emirate']; ?></td>
-						</tr>
-						<tr>
-						<th>Email</th>
                         <td><?php echo $res['email']; ?></td>
-						</tr>
-						<tr>
-						<th>Mobile</th>
-						<td>+<?php echo $res['mobile']; ?></td>
-						</tr>
-					
-					
-						<!-- <tr>
-						<th>Retailer Name</th>
-                        <td><?php //echo $res['retailer_name']; ?></td>
-						</tr> -->
-						<tr>
-						<th>Talabat Order Id.</th>
+						<td><?php echo $res['mobile']; ?></td>
 						<td><?php echo $res['invoice_no']; ?></td>
-						</tr>
-						<tr>
-							<th>Order Screenshot</th>
-							<td><?php if($res["invoice_img"]!=""){ ?>
-                      <img src="../alproAdmin987/uploads/<?php //if($res['is_arabic']==1) {echo ('../ar/uploads/');} else {echo ('../uploads/');} ?><?php echo $res["invoice_img"]; ?>" />
-                      <?php } else{ echo "No-image";} ?></td>
-						</tr>
-						<!-- <tr>
-						<th>Delete</th>
-                        <td><a href="javascript:removeItem(<?php echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
-                      </tr> -->
+						<td><?php echo $res['qid']; ?></td>
+                        <td><a href="view-submission.php?e_id=<?php echo $res['entry_id']; ?>" class="btn btn-primary" title="">View</a>&nbsp;
+                        <a href="javascript:removeItem(<?php echo $res['entry_id']; ?>);" class="btn btn-danger">Remove</a></td>
+                      </tr>
                       <?php }?>
                     </tbody>
                     <tfoot>
@@ -152,14 +123,47 @@ $r1=mysqli_query($url,$sql) or die("Failed".mysqli_error($url));
     <!-- AdminLTE for demo purposes -->
      <script>
       $(function () {
-        $('#example2').DataTable({
+        /*$('#example2').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,
           "ordering": true,
           "info": true,
           "autoWidth": false
-		  });
+		  });*/
+		  $('#example2').DataTable( {
+        dom: 'Bfrtip',
+        /*buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]*/
+		buttons: [
+            {
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: [ 0, ':visible' ]
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 3, 4 ]
+                }
+            },
+			{
+                extend: 'print',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 3, 4 ]
+                }
+            },
+            'colvis'
+        ]
+    } );
       });
     </script>
     <script type="text/javascript">
